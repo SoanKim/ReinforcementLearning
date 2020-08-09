@@ -10,7 +10,7 @@
 
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
-from OUP import QUActionsNoise
+from noise import QUActionsNoise
 # call MinMaxScaler object
 min_max_scaler = MinMaxScaler()
 # # feed in a numpy array

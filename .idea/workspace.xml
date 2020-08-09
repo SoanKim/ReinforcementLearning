@@ -7,10 +7,22 @@
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6045a13b-0158-4ca9-952d-369bc5e9f8f9" name="Default Changelist" comment="" />
+    <list default="true" id="6045a13b-0158-4ca9-952d-369bc5e9f8f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ReinforcementLearning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ReinforcementLearning.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DQLearning.py" beforeDir="false" afterPath="$PROJECT_DIR$/networks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OUP.py" beforeDir="false" afterPath="$PROJECT_DIR$/noise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RB.py" beforeDir="false" afterPath="$PROJECT_DIR$/buffer.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +52,30 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="ReinforcementLearning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -58,7 +94,9 @@
       <workItem from="1596898551328" duration="5281000" />
       <workItem from="1596906101371" duration="540000" />
       <workItem from="1596907189951" duration="621000" />
-      <workItem from="1596907921121" duration="263000" />
+      <workItem from="1596907921121" duration="1670000" />
+      <workItem from="1596914420387" duration="315000" />
+      <workItem from="1596998962277" duration="4045000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1596908252193</created>
@@ -67,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596908252193</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Initial commit">
+      <created>1596908304340</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1596908304340</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,26 +152,34 @@
       <screen x="0" y="23" width="1440" height="800" />
     </state>
     <state x="526" y="331" key="Github.CreateGistDialog/0.23.1440.800@0.23.1440.800" timestamp="1596871944377" />
-    <state x="546" y="327" key="Github.ShareDialog" timestamp="1596907883903">
-      <screen x="0" y="23" width="1440" height="800" />
+    <state x="546" y="326" key="Github.ShareDialog" timestamp="1596914658932">
+      <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="546" y="327" key="Github.ShareDialog/0.23.1440.800@0.23.1440.800" timestamp="1596907883903" />
+    <state x="546" y="326" key="Github.ShareDialog/0.23.1440.797@0.23.1440.797" timestamp="1596914658932" />
+    <state x="546" y="327" key="Github.ShareDialog/0.23.1440.800@0.23.1440.800" timestamp="1596908649490" />
     <state x="789" y="125" key="Github.UntrackedFilesDialog" timestamp="1596906454829">
       <screen x="0" y="23" width="1440" height="800" />
     </state>
     <state x="789" y="125" key="Github.UntrackedFilesDialog/0.23.1440.800@0.23.1440.800" timestamp="1596906454829" />
-    <state x="209" y="23" key="SettingsEditor" timestamp="1596871749680">
-      <screen x="0" y="23" width="1440" height="800" />
+    <state x="209" y="0" key="SettingsEditor" timestamp="1596999081816">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="209" y="0" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1596999081816" />
+    <state x="209" y="23" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1596914617737" />
     <state x="209" y="23" key="SettingsEditor/0.23.1440.800@0.23.1440.800" timestamp="1596871749680" />
-    <state x="320" y="163" key="Vcs.Push.Dialog.v2" timestamp="1596907211478">
-      <screen x="0" y="23" width="1440" height="800" />
+    <state x="320" y="158" key="Vcs.Push.Dialog.v2" timestamp="1597002391119">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="163" key="Vcs.Push.Dialog.v2/0.23.1440.800@0.23.1440.800" timestamp="1596907211478" />
+    <state x="320" y="158" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1597002391119" />
+    <state x="320" y="163" key="Vcs.Push.Dialog.v2/0.23.1440.800@0.23.1440.800" timestamp="1596908635715" />
     <state x="589" y="364" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596907684912">
       <screen x="0" y="23" width="1440" height="800" />
     </state>
     <state x="589" y="364" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.800@0.23.1440.800" timestamp="1596907684912" />
+    <state x="541" y="436" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1596908448417">
+      <screen x="0" y="23" width="1440" height="800" />
+    </state>
+    <state x="541" y="436" key="git4idea.remote.GitConfigureRemotesDialog/0.23.1440.800@0.23.1440.800" timestamp="1596908448417" />
     <state x="385" y="147" width="670" height="676" key="search.everywhere.popup" timestamp="1596872023601">
       <screen x="0" y="23" width="1440" height="800" />
     </state>
