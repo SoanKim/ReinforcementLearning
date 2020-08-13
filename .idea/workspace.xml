@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -16,12 +19,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6045a13b-0158-4ca9-952d-369bc5e9f8f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ReinforcementLearning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ReinforcementLearning.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LunarLander_alpha_0.0001_beta_0.001_1000_games.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LunarLander_alpha_0.0001_beta_0.001_100_games.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LunarLander_alpha_0.0001_beta_0.001_10_games.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/actor_ddpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target_actor_ddpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target_critic_ddpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DQLearning.py" beforeDir="false" afterPath="$PROJECT_DIR$/networks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OUP.py" beforeDir="false" afterPath="$PROJECT_DIR$/noise.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RB.py" beforeDir="false" afterPath="$PROJECT_DIR$/buffer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/networks.py" beforeDir="false" afterPath="$PROJECT_DIR$/networks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/noise.py" beforeDir="false" afterPath="$PROJECT_DIR$/noise.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +47,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JupyterTrust" id="450b0a13-33ca-440a-ac40-bc8e909e4b1c" />
+  <component name="JupyterTrust" id="966fda6b-f786-42fa-b723-04f62011ff29" />
   <component name="ProjectId" id="1fl8tE63XKAxXDNNzEtN7IMe5OV" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -48,9 +57,17 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings>
+        <option name="useSoftWraps" value="true" />
+      </console-settings>
+    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -75,6 +92,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ReinforcementLearning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -97,6 +141,10 @@
       <workItem from="1596907921121" duration="1670000" />
       <workItem from="1596914420387" duration="315000" />
       <workItem from="1596998962277" duration="4045000" />
+      <workItem from="1597142366661" duration="11000" />
+      <workItem from="1597255467205" duration="359000" />
+      <workItem from="1597256290104" duration="8080000" />
+      <workItem from="1597270861036" duration="104000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1596908252193</created>
@@ -132,6 +180,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initial commit" />
     <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
@@ -161,17 +210,69 @@
       <screen x="0" y="23" width="1440" height="800" />
     </state>
     <state x="789" y="125" key="Github.UntrackedFilesDialog/0.23.1440.800@0.23.1440.800" timestamp="1596906454829" />
-    <state x="209" y="0" key="SettingsEditor" timestamp="1596999081816">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="256" key="GridCell.Tab.0.bottom" timestamp="1597270608003">
+      <screen x="0" y="23" width="1440" height="803" />
+    </state>
+    <state width="1398" height="256" key="GridCell.Tab.0.bottom/0.23.1440.803@0.23.1440.803" timestamp="1597270608003" />
+    <state width="1398" height="256" key="GridCell.Tab.0.bottom/0.23.1440.805@0.23.1440.805" timestamp="1597261364941" />
+    <state width="1398" height="256" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1597263899635" />
+    <state width="1398" height="256" key="GridCell.Tab.0.center" timestamp="1597270608002">
+      <screen x="0" y="23" width="1440" height="803" />
+    </state>
+    <state width="1398" height="256" key="GridCell.Tab.0.center/0.23.1440.803@0.23.1440.803" timestamp="1597270608002" />
+    <state width="1398" height="256" key="GridCell.Tab.0.center/0.23.1440.805@0.23.1440.805" timestamp="1597261364941" />
+    <state width="1398" height="256" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1597263899635" />
+    <state width="1398" height="256" key="GridCell.Tab.0.left" timestamp="1597270608002">
+      <screen x="0" y="23" width="1440" height="803" />
+    </state>
+    <state width="1398" height="256" key="GridCell.Tab.0.left/0.23.1440.803@0.23.1440.803" timestamp="1597270608002" />
+    <state width="1398" height="256" key="GridCell.Tab.0.left/0.23.1440.805@0.23.1440.805" timestamp="1597261364940" />
+    <state width="1398" height="256" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1597263899635" />
+    <state width="1398" height="256" key="GridCell.Tab.0.right" timestamp="1597270608003">
+      <screen x="0" y="23" width="1440" height="803" />
+    </state>
+    <state width="1398" height="256" key="GridCell.Tab.0.right/0.23.1440.803@0.23.1440.803" timestamp="1597270608003" />
+    <state width="1398" height="256" key="GridCell.Tab.0.right/0.23.1440.805@0.23.1440.805" timestamp="1597261364941" />
+    <state width="1398" height="256" key="GridCell.Tab.0.right/0.23.1440.810@0.23.1440.810" timestamp="1597263899635" />
+    <state width="1398" height="256" key="GridCell.Tab.1.bottom" timestamp="1597270608005">
+      <screen x="0" y="23" width="1440" height="803" />
+    </state>
+    <state width="1398" height="256" key="GridCell.Tab.1.bottom/0.23.1440.803@0.23.1440.803" timestamp="1597270608005" />
+    <state width="1398" height="256" key="GridCell.Tab.1.bottom/0.23.1440.805@0.23.1440.805" timestamp="1597261364942" />
+    <state width="1398" height="256" key="GridCell.Tab.1.bottom/0.23.1440.810@0.23.1440.810" timestamp="1597263899637" />
+    <state width="1398" height="256" key="GridCell.Tab.1.center" timestamp="1597270608005">
+      <screen x="0" y="23" width="1440" height="803" />
+    </state>
+    <state width="1398" height="256" key="GridCell.Tab.1.center/0.23.1440.803@0.23.1440.803" timestamp="1597270608005" />
+    <state width="1398" height="256" key="GridCell.Tab.1.center/0.23.1440.805@0.23.1440.805" timestamp="1597261364942" />
+    <state width="1398" height="256" key="GridCell.Tab.1.center/0.23.1440.810@0.23.1440.810" timestamp="1597263899636" />
+    <state width="1398" height="256" key="GridCell.Tab.1.left" timestamp="1597270608004">
+      <screen x="0" y="23" width="1440" height="803" />
+    </state>
+    <state width="1398" height="256" key="GridCell.Tab.1.left/0.23.1440.803@0.23.1440.803" timestamp="1597270608004" />
+    <state width="1398" height="256" key="GridCell.Tab.1.left/0.23.1440.805@0.23.1440.805" timestamp="1597261364942" />
+    <state width="1398" height="256" key="GridCell.Tab.1.left/0.23.1440.810@0.23.1440.810" timestamp="1597263899636" />
+    <state width="1398" height="256" key="GridCell.Tab.1.right" timestamp="1597270608005">
+      <screen x="0" y="23" width="1440" height="803" />
+    </state>
+    <state width="1398" height="256" key="GridCell.Tab.1.right/0.23.1440.803@0.23.1440.803" timestamp="1597270608005" />
+    <state width="1398" height="256" key="GridCell.Tab.1.right/0.23.1440.805@0.23.1440.805" timestamp="1597261364942" />
+    <state width="1398" height="256" key="GridCell.Tab.1.right/0.23.1440.810@0.23.1440.810" timestamp="1597263899636" />
+    <state x="209" y="23" key="SettingsEditor" timestamp="1597261713661">
+      <screen x="0" y="23" width="1440" height="805" />
     </state>
     <state x="209" y="0" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1596999081816" />
     <state x="209" y="23" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1596914617737" />
     <state x="209" y="23" key="SettingsEditor/0.23.1440.800@0.23.1440.800" timestamp="1596871749680" />
-    <state x="320" y="158" key="Vcs.Push.Dialog.v2" timestamp="1597002391119">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="209" y="23" key="SettingsEditor/0.23.1440.803@0.23.1440.803" timestamp="1597255951971" />
+    <state x="209" y="23" key="SettingsEditor/0.23.1440.805@0.23.1440.805" timestamp="1597261713661" />
+    <state x="320" y="164" key="Vcs.Push.Dialog.v2" timestamp="1597270960595">
+      <screen x="0" y="23" width="1440" height="805" />
     </state>
     <state x="320" y="158" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1597002391119" />
     <state x="320" y="163" key="Vcs.Push.Dialog.v2/0.23.1440.800@0.23.1440.800" timestamp="1596908635715" />
+    <state x="320" y="164" key="Vcs.Push.Dialog.v2/0.23.1440.803@0.23.1440.803" timestamp="1597270881886" />
+    <state x="320" y="164" key="Vcs.Push.Dialog.v2/0.23.1440.805@0.23.1440.805" timestamp="1597270960595" />
     <state x="589" y="364" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596907684912">
       <screen x="0" y="23" width="1440" height="800" />
     </state>
@@ -180,9 +281,24 @@
       <screen x="0" y="23" width="1440" height="800" />
     </state>
     <state x="541" y="436" key="git4idea.remote.GitConfigureRemotesDialog/0.23.1440.800@0.23.1440.800" timestamp="1596908448417" />
-    <state x="385" y="147" width="670" height="676" key="search.everywhere.popup" timestamp="1596872023601">
-      <screen x="0" y="23" width="1440" height="800" />
+    <state x="385" y="148" width="670" height="681" key="search.everywhere.popup" timestamp="1597263373907">
+      <screen x="0" y="23" width="1440" height="805" />
     </state>
     <state x="385" y="147" width="670" height="676" key="search.everywhere.popup/0.23.1440.800@0.23.1440.800" timestamp="1596872023601" />
+    <state x="385" y="148" width="670" height="681" key="search.everywhere.popup/0.23.1440.805@0.23.1440.805" timestamp="1597263373907" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ReinforcementLearning$main.coverage" NAME="main Coverage Results" MODIFIED="1597261044573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

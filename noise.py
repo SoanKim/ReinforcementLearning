@@ -3,7 +3,7 @@
 import numpy as np
 
 class QUActionsNoise():
-    def __init__(self, mu, sigma=0.15, theta=0.2, dt=13-2): # mu: mean for the noise, sigma: standard deviation, theta, timeparameter dt, x0 for starting value)
+    def __init__(self, mu, sigma=0.15, theta=0.2, dt=13-2, x0=None): # mu: mean for the noise, sigma: standard deviation, theta, timeparameter dt, x0 for starting value)
         self.theta = theta
         self.mu = mu
         self.sigma = sigma

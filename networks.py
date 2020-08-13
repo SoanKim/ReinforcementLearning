@@ -48,7 +48,7 @@ import torch.optim as optim
 import numpy as np
 
 class CriticNetwork(nn.Module):
-    def __init__(self, beta, input_dims, fc1_dims, fc2_dims, n_actions, name, chkpt_dir = 'tmp/ddpg'):
+    def __init__(self, beta, input_dims, fc1_dims, fc2_dims, n_actions, name, chkpt_dir = '/Users/soankim/PycharmProjects/ReinforcementLearning/'):
     #beta = lr, fc1=inputdim, fc2 = fully connected layer, chkpt_dir = model check pointing
         super(CriticNetwork, self).__init__()
         self.input_dims = input_dims
@@ -60,7 +60,7 @@ class CriticNetwork(nn.Module):
         self.checkpoint_file = os.path.join(self.checkpoint_dir, name + '_ddpg')
 
         # Define the network
-        self.fc1 = nn.Linear(*self.inpt_dims, self.fc1_dims) # First take input dim and connect it to fc2 dim
+        self.fc1 = nn.Linear(*self.input_dims, self.fc1_dims) # First take input dim and connect it to fc2 dim
         self.fc2 = nn.Linear(self.fc1_dims, self.fc2_dims)
 
         # Important to normalize input tensors.
@@ -87,14 +87,14 @@ class CriticNetwork(nn.Module):
 
         f4 = 1./np.sqrt(self.action_value.weight.data.size()[0])
         self.action_value.weight.data.uniform_(-f4, f4)
-        self.actions_value.bias.data.uniform_(-f4, f4)
+        self.action_value.bias.data.uniform_(-f4, f4)
 
         self.optimizer = optim.Adam(self.parameters(), lr=beta, weight_decay=0.01)
         self.device = T.device('cuda:0' if T.cuda.is_available() else 'cpu')
 
     def forward(self, state, action):
         state_value = self.fc1(state)
-        state_value = self.vn1(state_value)
+        state_value = self.bn1(state_value)
         state_value = F.relu(state_value)
         # Activate before normalization, because it not, negative values can be lopped off.
         state_value = self.fc2(state_value)
@@ -113,7 +113,7 @@ class CriticNetwork(nn.Module):
 
     def save_checkpoint(self):
         print('...saving checkpoint...')
-        T.save(self.state_dic(), self.checkpoint_file)
+        T.save(self.state_dict(), self.checkpoint_file)
 
     def load_checkpoint(self):
         print('...loading checkpoint...')
@@ -122,7 +122,7 @@ class CriticNetwork(nn.Module):
 #############################################
 class ActorNetwork(nn.Module):
     def __init__(self, alpha, input_dims, fc1_dims, fc2_dims, n_actions,
-                 name, chkpt_dir = 'tmp/ddpg'): # alpha = lr
+                 name, chkpt_dir = '/Users/soankim/PycharmProjects/ReinforcementLearning/'): # alpha = lr
         super(ActorNetwork, self).__init__()
         self.input_dims = input_dims
         self.fc1_dims = fc1_dims
@@ -132,7 +132,7 @@ class ActorNetwork(nn.Module):
         self.checkpoint_dir = chkpt_dir
         self.checkpoint_file = os.path.join(self.checkpoint_dir, name + '_ddpg')
 
-        self.fc1 = nn.Linear(*self.inpt_dims, self.fc1_dims)  # First take input dim and connect it to fc2 dim
+        self.fc1 = nn.Linear(*self.input_dims, self.fc1_dims)  # First take input dim and connect it to fc2 dim
         self.fc2 = nn.Linear(self.fc1_dims, self.fc2_dims)
 
         # layernorm rather than batch norm because bn doesn't cnt running mean, running avg.
@@ -158,8 +158,8 @@ class ActorNetwork(nn.Module):
 
         # The initialization of output layer mu
         f3 = 0.003
-        self.q.weight.data.uniform_(-f3, f3)
-        self.q.bias.data.uniform_(-f3, f3)
+        self.mu.weight.data.uniform_(-f3, f3)
+        self.mu.bias.data.uniform_(-f3, f3)
 
         self.optimizer = optim.Adam(self.parameters(), lr=alpha)
         self.device = T.device('cuda:0' if T.cuda.is_available() else 'cpu')
@@ -168,38 +168,38 @@ class ActorNetwork(nn.Module):
 
     def forward(self, state):
         # current state of env. as input
-        state_value = self.fc1(state)
-        state_value = self.vn1(state_value)
-        state_value = F.relu(state_value)
+        x = self.fc1(state)
+        x = self.bn1(x)
+        x = F.relu(x)
 
         # Activate Relu after normalization. Otherwise, ReLu chops up negative values.
-        state_value = self.fc2(state_value)
-        state_value = self.bn2(state_value)
-        action_value = self.action_value(action)
-        state_action_value = F.relu(T.add(state_value, action_value))
+        x = self.fc2(x)
+        x = self.bn2(x)
+        x = F.relu(x)
 
         # Tangent hyperbolic has a boundary from -1 to +1 which happens to correspond
         # the actions bounds of our environment
         # You can multiply by 2. Then this network by the bounds of your environment,
         # But in case LunarLander, we don't have to do that.
-        state_action_value = T.tanh(state_action_value)
+        x = T.tanh(self.mu(x))
         # concatenating is not good
         # ∵ Q table should have # of col & rows.
         # cols = each action for state (baseline val 2 the each state). The val of the actions tells u what u're gonna gain through that action.
         # The shape will be n_actions (state values) +1  in shape. Wonky in dimensionality wise. Displacement of velocity.
         # = What u're doing in matched with incorrect # of dim. Incorrect.
         # Relu on both state and action function.
-        state_action_value = self.q(state_action_value)
-
-        return state_action_value
+        return x
 
     def save_checkpoint(self):
         print('...saving checkpoint...')
-        T.save(self.state_dic(), self.checkpoint_file)
+        T.save(self.state_dict(), self.checkpoint_file)
 
     def load_checkpoint(self):
         print('...loading checkpoint...')
         self.load_state_dict(T.load(self.checkpoint_file))
 
-
+    def save_best(self):
+        print('... saving best checkpoint ...')
+        checkpoint_file = os.path.join(self.checkpoint_dir, self.name+'_best')
+        T.save(self.state_dict(), checkpoint_file)
 

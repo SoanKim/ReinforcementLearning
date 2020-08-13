@@ -1,13 +1,15 @@
 import torch as T
+import torch.nn.functional as F
 import numpy as np
 from networks import ActorNetwork, CriticNetwork
-from noise import OUActionNoise
+from noise import QUActionsNoise
 from buffer import ReplayBuffer
 
 class Agent():
     def __init__(self, alpha, beta, input_dims, tau, n_actions,
                  gamma=0.99, max_size=1000000, fc1_dims = 400, fc2_dims=300,
                  batch_size=64): #64 transition for our batch size
+        # Local variables
         self.gamma = gamma
         self.tau = tau
         self.batch_size = batch_size
@@ -15,7 +17,7 @@ class Agent():
         self.beta = beta
 
         self.memory = ReplayBuffer(max_size, input_dims, n_actions)
-        self.noise = OUAactionNoise(mu=np.zeros(n_actions))
+        self.noise = QUActionsNoise(mu=np.zeros(n_actions))
         self.actor = ActorNetwork(alpha, input_dims, fc1_dims, fc2_dims,
                                   n_actions=n_actions, name='actor')
         self.critic = CriticNetwork(beta, input_dims, fc1_dims, fc2_dims,
@@ -33,7 +35,7 @@ class Agent():
         mu_prime = mu + T.tensor(self.noise(), dtype=T.float).to(self.actor.device)
         self.actor.train()
 
-        return mu_prime.cpu().detach.numpy()[0]
+        return mu_prime.cpu().detach().numpy()[0]
         # Because mu is pytorch tensor, and env is numpy array.
 
     def remember(self, state, action, reward, state_, done):
@@ -50,3 +52,84 @@ class Agent():
         self.critic.load_checkpoint()
         self.target_critic.load_checkpoint()
 
+    # My code --> Utilize modules and link them.
+    # How to do modular thinking?
+
+    #     for i in len(state / batch):
+    #         while done != 0
+    #             batch = nn.layernorm(batch[i])
+    #             sample = np.random.choice(batch_size)
+    #             loss = argmin(1/N
+    #             self.actor = update
+    #             self.actor_
+    #             done = 0
+
+    def learn(self):
+        if self.memory.mem_cntr < self.batch_size:
+            return
+        states, actions, rewards, states_, done = \
+        self.memory.sample_buffer(self.batch_size)
+
+        states = T.tensor(states, dtype=T.float).to(self.actor.device)
+        states_ = T.tensor(states_, dtype=T.float).to(self.actor.device)
+        actions = T.tensor(actions, dtype=T.float).to(self.actor.device)
+        rewards = T.tensor(rewards, dtype=T.float).to(self.actor.device)
+        done = T.tensor(done).to(self.actor.device)
+
+        # The diff between the actions of target critic value and critic value
+        target_actions = self.target_actor.forward(states_)
+        critic_value_ = self.target_critic.forward(states_, target_actions)
+        critic_value = self.critic.forward(states, actions)
+
+        # thanks to the boolean data type, wherever there is 0, will be flagged by done
+        critic_value_[done] = 0.0
+        #View tensor shares the same underlying data with its base tensor.
+        # The new shape should be compatible with the original shape.
+        critic_value_ = critic_value_.view(-1)
+
+        target = rewards + self.gamma * critic_value_
+        target = target.view(self.batch_size, 1)
+
+        # Since the backward() function accumulates gradients, and you don’t want to mix up gradients between minibatches,
+        # you have to zero them out at the start of a new minibatch.
+        self.critic.optimizer.zero_grad()
+        critic_loss = F.mse_loss(target, critic_value)
+        critic_loss.backward()
+        self.critic.optimizer.step()
+
+        self.actor.optimizer.zero_grad()
+        # states are chosen by actor network
+        actor_loss = -self.critic.forward(states, self.actor.forward(states))
+        actor_loss = T.mean(actor_loss)
+        actor_loss.backward()
+        self.actor.optimizer.step()
+
+        self.update_network_parameters()
+
+    def update_network_parameters(self, tau=None): # Tau: update paramenter
+        if tau is None:
+            tau = self.tau # tau was 1 on above, self.update_network_parameters(tau=1)
+
+        actor_params = self.actor.named_parameters()
+        critic_params = self.critic.named_parameters()
+        target_actor_params = self.target_actor.named_parameters()
+        target_critic_params = self.target_critic.named_parameters()
+
+        critic_state_dict = dict(critic_params)
+        actor_state_dict = dict(actor_params)
+        # A state_dict is simply a Python dictionary object that maps each layer to its parameter tensor.
+        target_critic_state_dict = dict(target_critic_params)
+        target_actor_state_dict = dict(target_actor_params)
+
+        for name in critic_state_dict:
+            critic_state_dict[name] = tau*critic_state_dict[name].clone() + \
+                                      (1-tau)*target_critic_state_dict[name].clone()
+
+        for name in actor_state_dict:
+            actor_state_dict[name] = tau* actor_state_dict[name].clone() + \
+                                     (1-tau) * target_actor_state_dict[name].clone()
+
+        self.target_critic.load_state_dict(critic_state_dict)
+        self.target_actor.load_state_dict(actor_state_dict)
+        #self.target_critic.load_state_dict(critic_state_dict, strict=False) # for bach norms
+        #self.target_actor.load_state_dict(actor_state_dict, strict=False) # for bach norms
