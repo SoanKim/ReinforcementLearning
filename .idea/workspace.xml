@@ -19,18 +19,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6045a13b-0158-4ca9-952d-369bc5e9f8f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LunarLander_alpha_0.0001_beta_0.001_1000_games.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LunarLander_alpha_0.0001_beta_0.001_100_games.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LunarLander_alpha_0.0001_beta_0.001_10_games.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/actor_ddpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target_actor_ddpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target_critic_ddpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/networks.py" beforeDir="false" afterPath="$PROJECT_DIR$/networks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noise.py" beforeDir="false" afterPath="$PROJECT_DIR$/noise.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +49,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -145,6 +135,9 @@
       <workItem from="1597255467205" duration="359000" />
       <workItem from="1597256290104" duration="8080000" />
       <workItem from="1597270861036" duration="104000" />
+      <workItem from="1597326050291" duration="192000" />
+      <workItem from="1597332385526" duration="35000" />
+      <workItem from="1597423364795" duration="458000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1596908252193</created>
